@@ -28,4 +28,8 @@ app.post("/signin", (req, res) => {
     res.send("Sign in received")
 })
 
+app.get("/dashboard", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "dashboard.html"))
+})
+
 app.listen(3000)
