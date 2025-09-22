@@ -40,23 +40,19 @@
       </div>
     </nav>
 
-    <form id="signUpForm" class="form-signup" onsubmit="submit_sign_up(event)">
+    <form id="signInForm" class="form-signup" onsubmit="submit_sign_in(event)">
       <img class="mb-4" src="assets/tasker.png" alt="" width="100%" alt="Tasker Logo">
-      <h1 class="h3 mb-3 font-weight-normal">Please register here</h1>
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in here</h1>
       <label for="inputEmail" class="sr-only">Email address</label>
       <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-      <label for="inputFirstName" class="sr-only">First name</label>
-      <input type="firstName" id="inputFirstName" class="form-control" placeholder="First name" required="" autofocus="">
-      <label for="inputLastName" class="sr-only">Last name</label>
-      <input type="lastName" id="inputLastName" class="form-control" placeholder="Last name" required="" autofocus="">
       <label for="inputPassword" class="sr-only">Password</label>
       <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-  
+      
       <div style="margin: 1em;">
-        <a href="/signin"><p>Have an account? Login here.</p></a>
+        <a href="/signup"><p>Don't have an account? Register here.</p></a>
       </div>
 
-      <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 1em">Sign up</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 1em">Sign in</button>
       <p class="mt-5 mb-3 text-muted">© 2025-2026</p>
     </form>
   
@@ -66,7 +62,7 @@
   html {
     scroll-behavior: smooth;
   }
-
+  
   :host {
     all: initial;
   }

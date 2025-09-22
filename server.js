@@ -18,4 +18,14 @@ app.post("/signup", (req, res) => {
     console.log(req.body)
     res.send("Sign up received!")
 })
+
+app.get("/signin", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "sign_in.html"))
+})
+
+app.post("/signin", (req, res) => {
+    console.log(req.body)
+    res.send("Sign in received")
+})
+
 app.listen(3000)
