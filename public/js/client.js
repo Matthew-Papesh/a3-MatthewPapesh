@@ -30,7 +30,15 @@ const submit_sign_up = async function(event) {
 
   // handle response
   const text = await response.text()
-  console.log( "text:", text )
+  if(await response.ok) {
+    // good registration; say so
+    signUpMsg = document.getElementById("signUpMessage")
+    signUpMsg.innerHTML = `<p style="color: green">${text}<\p>`
+  } else {
+    // failed to register
+    signUpMsg = document.getElementById("signUpMessage")
+    signUpMsg.innerHTML = `<p style="color: red">${text}<\p>`
+  }
 }
 
 const submit_sign_in = async function(event) {
@@ -58,6 +66,17 @@ const submit_sign_in = async function(event) {
   })
 
   // handle response
-  const text = await response.text()
-  console.log( "text:", text )
+  const status = await response.status
+
+  if(status === 400) {
+    const signInMsg = document.getElementById("signInMessage")
+    const res_text = await response.text()
+    signInMsg.innerHTML = `<p style="color: red">${res_text}</p>`
+  }
+  // login successful; redirect to account page
+  else if(response.ok) {
+    const user_credentials = await response.json()
+    const key = user_credentials.key
+    window.location.href = `/dashboard-${key}`
+  }
 }
